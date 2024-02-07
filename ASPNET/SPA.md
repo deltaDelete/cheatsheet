@@ -151,7 +151,7 @@ As you can see this config specifies ASP.NET's HTTPS certificate path and in cas
 
 Also it specifies endpoints that will be proxified to `SERVER`
 
-### 7. Edit `SERVER`/Properties/launch.json
+### 7. Edit `SERVER`/Properties/launchSettings.json
 
 For each profile you must add following entry
 ```json
@@ -206,4 +206,4 @@ Like this:
 }
 ```
 
-Also make sure port specified in Vite is the same as in launch.json
+Also make sure port specified in Vite is the same as in launchSettings.json
