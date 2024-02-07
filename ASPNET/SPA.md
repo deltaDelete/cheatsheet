@@ -31,7 +31,7 @@ yarn create vite my-app.client --template react-ts
 ### 3. Create an ESPROJ file inside `CLIENT`
 
 ```xml
-<!--my-app.client.esproj-->
+<!-- my-app.client.esproj -->
 <Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/0.5.128-alpha">
     <PropertyGroup>
         <StartupCommand>npm run dev</StartupCommand>
@@ -71,6 +71,13 @@ Pay attention to `$PORT$`, that should be replaced by your Vite port
         <SpaProxyLaunchCommand>yarn dev</SpaProxyLaunchCommand>
         <SpaProxyServerUrl>https://localhost:$PORT$</SpaProxyServerUrl>
     </PropertyGroup>
+    
+    <ItemGroup>
+        ...
+        <PackageReference Include="Microsoft.AspNetCore.SpaProxy">
+            <Version>8.*-*</Version>
+        </PackageReference>
+    </ItemGroup>
     
     <ItemGroup>
         <ProjectReference Include="..\reactapp1.client\reactapp1.client.esproj">
@@ -207,3 +214,11 @@ Like this:
 ```
 
 Also make sure port specified in Vite is the same as in launchSettings.json
+
+### 8. Launch your project
+
+```shell
+dotnet run --project `SERVER`.csproj
+```
+
+If everything is made perfectly ASP.NET server should start and then start Vite with React application
